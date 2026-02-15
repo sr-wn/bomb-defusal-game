@@ -154,8 +154,8 @@ public class BombDefusalServer {
             html.append("<div class='timer-panel'>");
             html.append("<div class='attempts-label'>Time Left Before Blast</div>");
             long secondsLeft = game.timeLeftSeconds();
-            String timerColor = (secondsLeft <= 10 && secondsLeft > 0) ? "#ffaa00" : "#ff4444";
-            String timerText = game.isGameOver() ? "000" : String.format("%02d", secondsLeft);
+            String timerColor = "#ff4444";
+            String timerText = "00";
             html.append("<div class='timer-screen' style='color:" + timerColor + ";'>" + timerText + "</div>");
             html.append("</div>");
 
@@ -246,6 +246,7 @@ public class BombDefusalServer {
             html.append("  if (!startScreen || !gameScreen) { console.error('Elements not found'); return; }");
             html.append("  startScreen.style.display = 'none';");
             html.append("  gameScreen.style.display = 'block';");
+            html.append("  secondsLeft = " + secondsLeft + ";");
             html.append("  countdownAudio = document.getElementById('countdownAudio');");
             html.append("  explosionAudio = document.getElementById('explosionAudio');");
             html.append("  successAudio = document.getElementById('successAudio');");
